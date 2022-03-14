@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import { API_KEY, API_URL } from "../../config/config";
 import Loader from "../../Shared/Loader";
 import BasketList from "../BasketList/BasketList";
@@ -33,6 +34,7 @@ const Shop = () => {
       });
       setOrder(newOrder);
     }
+    toast.success("Goods added to basket succefully");
   };
 
   const handleBasketShow = () => {
@@ -42,6 +44,7 @@ const Shop = () => {
   const removeFromBasket = (itemId) => {
     const newOrder = order.filter((item) => item.id !== itemId);
     setOrder(newOrder);
+    toast.error("Goods deleted from bascket")
   };
 
   const incrementQuantity = (itemId) => {
