@@ -2,14 +2,15 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Shop from "./components/Shop/Shop";
-import { ToastContainer } from "react-toastify";
+import ContextProvider from "./Context/context";
 
 function App() {
   return (
     <>
-      <ToastContainer />
       <Header />
-      <Shop />
+      <ContextProvider>
+        <Shop />
+      </ContextProvider>
       <Footer />
     </>
   );

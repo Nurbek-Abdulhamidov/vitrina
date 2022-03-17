@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ShopContext } from "../../Context/context";
 
 const BasketListItem = (props) => {
   const { id, name, price, quantity, incrementQuantity, decrementQuantity } =
     props;
+
+  const { example } = useContext(ShopContext);
+  console.log(example);
+
+
   return (
     <li className="collection-item ">
       {name} x {quantity} = {price * quantity}
@@ -16,7 +22,7 @@ const BasketListItem = (props) => {
         <a
           className="waves-effect waves-light btn btnq"
           onClick={() => decrementQuantity(id)}
-          style={{ margin:' 0px 10px ' }}
+          style={{ margin: " 0px 10px " }}
         >
           <i className="material-icons left">exposure_minus_1</i>
           remove
